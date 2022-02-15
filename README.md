@@ -1,18 +1,32 @@
 # Notflix
 
-#### Usage:
-Optional: Add the launch year of the movie to be more precise.   
+#### Usage:   
 ```
 ./notflix.sh title of movie 
 ```
 
-#### Requirements:
-+ Peerflix 
-+ VLC\*  
+---
 
+#### Hints:
+- Add the launch year of the movie to have more precision;  
+- Add notflix.sh to /usr/local/bin dir to use command anywhere in terminal;    
+
+---
+
+#### Requirements:
++ peerflix 
++ VLC(\*)  
+
+---
+
+#### Install peerflix (Ubuntu):
 ```
-* You can edit the last line in notflix.sh or notflix_basic.sh to open with other video player of your choice.  
+sudo snap install peerflix --edge
 ```
+
+---
+
+(\*) You can edit the last line in notflix.sh or notflix_basic.sh to open with other video player of your choice.
 
 ```bash
 peerflix $magnet --vlc -- -f # -- passes the argument -f to vlc
