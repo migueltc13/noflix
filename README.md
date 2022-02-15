@@ -1,11 +1,17 @@
 # Notflix
 
+#### Usage:
+Optional: Add the launch year of the movie to be more precise.   
+```
+./notflix.sh title of movie 
+```
+
 #### Requirements:
 + Peerflix 
-+ VLC(\*)  
++ VLC\*  
 
 ```
-(*) You can use edit the flag in the last line in notflix.sh or notflix_basic.sh to open with other video player.  
+* You can edit the last line in notflix.sh or notflix_basic.sh to open with other video player of your choice.  
 ```
 
 ```
