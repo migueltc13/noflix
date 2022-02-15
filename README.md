@@ -14,6 +14,10 @@ Optional: Add the launch year of the movie to be more precise.
 * You can edit the last line in notflix.sh or notflix_basic.sh to open with other video player of your choice.  
 ```
 
+```bash
+peerflix $magnet --vlc -- -f # -- passes the argument -f to vlc
+```
+
 ```
 -v, --vlc          autoplay in vlc*                             
 -s, --airplay      autoplay via AirPlay                         
