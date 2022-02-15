@@ -20,5 +20,5 @@ for i in ${stack[@]}
       magnet=$(curl -s https://1337x.wtf/$i | grep -Po "magnet:\?xt=urn:btih:[a-zA-Z0-9]*" | head -n 1)
     fi
   done
-peerflix -v $magnet
+peerflix $magnet -v
 
