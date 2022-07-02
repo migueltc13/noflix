@@ -54,6 +54,7 @@ else
 fi
 
 # TODO snap option for ubuntu
+cd $HOME # install peerflix npm packages in $HOME ( aka ~/ )
 echo -e "\n[*] npm install -g peerflix"
 npm install -g peerflix
 status=$?

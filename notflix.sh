@@ -77,7 +77,7 @@ function menu() # selected_item, ...menu_items
               ;;
           esac
         fi
-        read -t ${MT} -rsn 5 # flushing stdin
+        read -t 0.1 -rsn 5 # flushing stdin
         ;;
       "") # Enter key
         return "$selected_item"
