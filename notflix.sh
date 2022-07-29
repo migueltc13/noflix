@@ -1,4 +1,4 @@
-#!/usr/local/bin/bash
+#!/bin/bash
 
 # Tested: GNU bash, version 5.1.16(1)-release (x86_64-apple-darwin21.1.0)
 # Warning: Using old bash versions may result in errors (floats are unsupported in older bash versions) 
