@@ -73,7 +73,7 @@ You can check peerflix repository [here](). A special thanks to all contributors
 (\*) You can edit the last line in noflix to open with other video player of your choice.
 
 ```bash
-peerflix $magnet --vlc -- -f # -- passes the argument -f to vlc
+peerflix ${magnet} --vlc -- -f # -- passes the argument -f to vlc
 ```
 
 ```
