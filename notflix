@@ -89,7 +89,7 @@ function menu() # selected_item, ...menu_items
 
 # NOTFLIX
 query=$(printf '%s' "$*" | sed 's/ /\%20/g') # | tr ' ' '+' | )
-stack=$(curl $URL/search/$query/ | grep -Eo 'magnet:\?xt=urn:btih:[a-zA-Z0-9]*')
+stack=$(curl -s $URL/search/$query/ | grep -Eo 'magnet:\?xt=urn:btih:[a-zA-Z0-9]*')
 
 # TODO add regex for different urls
 

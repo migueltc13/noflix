@@ -20,7 +20,7 @@ if [ "$(uname)" == "Darwin" ]; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	brew install npm
 	brew install curl
-	brew install --cask vlc # optional (TODO use mpv instead)
+	brew install --cask vlc # optional (TODO use AirPlay instead)
 	npm install -g peerflix
 	exit 0
 fi
