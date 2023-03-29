@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo -e "\nAuto install script for linux (using apt-get)\n"
+echo -e "\nAuto install script for linux (using apt)\n"
 
 # if you don't use apt as your package manager 
 # check / install the following packages:
@@ -14,16 +14,30 @@ then
   exit 1
 fi
 
-echo "Note: You will need a updated bash to run notflix's scripts"
-echo "      (this install.sh doesn't require a updated bash shell)"
-echo
-echo "      /bin/bash version: $BASH_VERSION"
-echo "      Version required: At least 4.0.0"
-echo
-echo "      If you have a updated bash in other location"
-echo "      then replace the first line in the notflix.sh script:"
-echo "          < #!/bin/bash"
-echo "          > #!/path/to/updated/bash"
+# For macOS users (using brew) 
+if [ "$(uname)" == "Darwin" ]; then
+    echo "Detected macOS, running macOS installation..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+	brew install npm
+	brew install curl
+	brew install --cask vlc # optional (TODO use mpv instead)
+	npm install -g peerflix
+	exit 0
+fi
+
+echo "Note: You will need a updated bash to run notflix's scripts
+(this install.sh doesn't require a updated bash shell)
+
+/bin/bash version: $BASH_VERSION
+Version required: At least 4.0.0
+
+If you have a updated bash in other location
+then replace the first line in the notflix.sh script:
+	< #!/bin/bash
+	> #!/path/to/updated/bash
+	
+If you don't have a updated bash shell
+then install it using your package manager"
 
 
 echo -e "\ninstall.sh: Starting installation...\n"

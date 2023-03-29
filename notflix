@@ -7,6 +7,7 @@
 PAGE_NUMBER="1" # Default: 1
 PLAYER="vlc" # TODO
 MT="0.0001" # Menu refresh time
+URL="https://thepiratebay.party"
 
 # TEXT AND MENU COLORS
 N='\033[0m' # No color
@@ -87,15 +88,21 @@ function menu() # selected_item, ...menu_items
 }
 
 # NOTFLIX
-query=$(printf '%s' "$*" | tr ' ' '+')
-stack=$(curl -s https://1337x.wtf/search/$query/$PAGE_NUMBER/ | grep -Eo "torrent\/[0-9]{7}\/[a-zA-Z0-9?%-]*/")
+query=$(printf '%s' "$*" | sed 's/ /\%20/g') # | tr ' ' '+' | )
+stack=$(curl $URL/search/$query/ | grep -Eo 'magnet:\?xt=urn:btih:[a-zA-Z0-9]*')
+
+# TODO add regex for different urls
+
+# extract titles from pattern: &dn=.*& (from magnet link)
+titles=($(curl -s $URL/search/$query/ | sed -n 's/.*&dn=\([^&]*\)&.*/\1/p'))
+# echo "Titles: ${titles[@]}"
 
 if [ -z "$stack" ]; then
   echo -e "\nnotflix.sh: ${R}Can't find ${Y}${*}${N}"
-  echo -e "\n${C}*hint*${N} Narrow the notflix search for better results ${C}*hint*${N}\n"
+  echo -e "\n${C}*hint*${N} Narrow the notflix search for better results\n"
   exit -1
 else
-  menu "0" "${stack[@]}"
+  menu "0" "${titles[@]}"
   menu_result="$?"
 fi
 
@@ -104,7 +111,7 @@ for i in ${stack[@]}; do
   if [ "$c" == "$menu_result" ]; then
     echo -e "\nSelected: $i"
     # TODO check for multiple/other magnets 
-    magnet=$(curl -s https://1337x.wtf/"$i" | grep -Eo "magnet:\?xt=urn:btih:[a-zA-Z0-9]*" | head -n 1 )
+    magnet=$i
   fi
   ((c++))
 done
