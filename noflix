@@ -119,6 +119,17 @@ done
 # TODO error magnet not found maybe
 echo -e "\nMagnet: ${magnet}" 
 
-# PEERFLIX - TODO players
-peerflix ${magnet} --vlc -- -f
+
+# Menu player or download
+menu "0" "Download" "Play"
+menu_result="$?"
+if [ "$menu_result" == "0" ]; then
+  echo -e "\nDownloading..."
+  # TODO check for multiple/other magnets 
+  peerflix ${magnet}
+else
+  echo -e "\nPlaying..."
+  # TODO check for multiple/other magnets 
+  peerflix ${magnet} --vlc -- -f
+fi
 exit 0
