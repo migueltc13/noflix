@@ -24,10 +24,12 @@ A simple bash script to stream movies from terminal using peerflix and VLC playe
 ## Installation
 
 ```bash
-git clone https://github.com/noflix/noflix
-cd noflix
-chmod +x install.sh
+git clone https://github.com/noflix/noflix && cd noflix
+chmod +x install.sh noflix
 ./install.sh
+```
+
+```bash
 ln -s noflix /usr/local/bin/noflix # optional (to use noflix anywhere in terminal)
 ```
 
@@ -48,7 +50,7 @@ noflix "The Matrix 1999"
 *Hints:*
 
 - Add the launch year of the movie to increase search precision
-- Add noflix to /usr/local/bin dir to use command anywhere in terminal
+- Add noflix to /usr/local/bin dir to use it anywhere in terminal
 
 ### Peerflix
 
